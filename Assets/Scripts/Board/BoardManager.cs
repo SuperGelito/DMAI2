@@ -132,6 +132,7 @@ var y = guiManagerInstance.transform.position.y;
         guiManagerInstance.GetComponent<GuiManager>().SelectCell(cellPos);
         var cell = matrix[(int)cellPos.x, (int)cellPos.y];
         SelectedCell = cellPos;
+        if(!cell.IsFree)
         switch (cell.CellOwner.charType)
         {
             case CharType.Hero:
