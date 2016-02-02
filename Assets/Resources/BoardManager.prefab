@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &147932
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 410140}
+  - 114: {fileID: 11466006}
+  m_Layer: 0
+  m_Name: BoardManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &410140
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 147932}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11466006
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 147932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9654acd8ac91594cb404f999d55da89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Tile: {fileID: 116996, guid: f4811c69d2f1d6f42b5b2f3dc2528655, type: 2}
+  Wall: {fileID: 105338, guid: 61985ab65b8e1eb48ba5f08891782dad, type: 2}
+  Mud: {fileID: 115964, guid: 28a8c9e600f9e8a4ca7789082204b126, type: 2}
+  heroTypes:
+  - {fileID: 127572, guid: 96da5d051b36abb419a874f14b303fdc, type: 2}
+  numTiles: 10
+  difficulty: 0
+  toleranceFM: 2
+  toleranceFW: 2
+  randomGeneratedTilesRate: 30
+  SelectedCell: {x: 1, y: 5}
+  guiManager: {fileID: 159630, guid: cfd0b3fa703ea6043ba5e05ecb64a6ca, type: 2}
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: heroTypes.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: numTiles
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: guiManager
+      value: 
+      objectReference: {fileID: 159630, guid: cfd0b3fa703ea6043ba5e05ecb64a6ca, type: 2}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 147932}
+  m_IsPrefabParent: 1
