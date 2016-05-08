@@ -36,21 +36,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 147932}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9654acd8ac91594cb404f999d55da89, type: 3}
+  m_Script: {fileID: 11500000, guid: d7807d69dcb43c9438a5aff56b3d9232, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Tile: {fileID: 116996, guid: f4811c69d2f1d6f42b5b2f3dc2528655, type: 2}
-  Wall: {fileID: 105338, guid: 61985ab65b8e1eb48ba5f08891782dad, type: 2}
-  Mud: {fileID: 115964, guid: 28a8c9e600f9e8a4ca7789082204b126, type: 2}
+  Tile: {fileID: 116996, guid: 531d67e952ed9f34795c709214f79d64, type: 2}
+  Wall: {fileID: 105338, guid: 11132c61314d6ea4fa115fdcdaefcc50, type: 2}
+  Mud: {fileID: 115964, guid: 95b07f2efe2813c41b0ab0f32aaa2236, type: 2}
   heroTypes:
-  - {fileID: 127572, guid: 96da5d051b36abb419a874f14b303fdc, type: 2}
+  - {fileID: 127572, guid: d832439c09bbf6244ac14574b3653ecd, type: 2}
   numTiles: 10
   difficulty: 0
   toleranceFM: 2
   toleranceFW: 2
   randomGeneratedTilesRate: 30
-  SelectedCell: {x: 1, y: 5}
-  guiManager: {fileID: 159630, guid: cfd0b3fa703ea6043ba5e05ecb64a6ca, type: 2}
+  SelectedCell: {x: 0, y: 0}
+  guiManager: {fileID: 159630, guid: 77358505d98db234db18c5db9881d769, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

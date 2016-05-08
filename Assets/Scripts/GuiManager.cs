@@ -8,6 +8,7 @@ public class GuiManager : MonoBehaviour {
     public GameObject ValidTile;
     public GameObject InvalidTile;
     public GameObject SelectTile;
+    public GameObject ThinkTile;
     public GameObject HeroLateralMenu;
     private GameObject heroLateralMenuInstance;
     public float rateToCenter = 0.5f;
@@ -56,8 +57,16 @@ public class GuiManager : MonoBehaviour {
 
     public void MarkMoveCell(Vector3 coordinates)
     {
-        ClearMarkedTiles();
+        //ClearMarkedTiles();
         GameObject selection = (GameObject)GameObject.Instantiate(this.ValidTile, ConvertToGuiPosition(coordinates), Quaternion.identity);
+        selection.transform.SetParent(this.GetComponent<Canvas>().transform);
+        markedTiles.Add(selection);
+    }
+
+    public void MarkThinkCell(Vector3 coordinates)
+    {
+        //ClearMarkedTiles();
+        GameObject selection = (GameObject)GameObject.Instantiate(this.ThinkTile, ConvertToGuiPosition(coordinates), Quaternion.identity);
         selection.transform.SetParent(this.GetComponent<Canvas>().transform);
         markedTiles.Add(selection);
     }

@@ -36,10 +36,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 122836}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f731b753f0f7e9419b5f2cbf5f6da93, type: 3}
+  m_Script: {fileID: 11500000, guid: df0a778a21a4f8e4b92112a2003a1e0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boardManager: {fileID: 147932, guid: 4b45cf28637d1cc46aadc6b85d30cf32, type: 2}
+  boardManager: {fileID: 147932, guid: ccef1b73d3951c640af5c5e6c33b38ca, type: 2}
   boardManagerInstance: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:

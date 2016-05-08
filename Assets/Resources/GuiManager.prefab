@@ -27,13 +27,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 159630}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c5e9d929fc85c94790a37031d3ad053, type: 3}
+  m_Script: {fileID: 11500000, guid: c4a334fe4ab34f04c8aaae7d4f2c9a23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ValidTile: {fileID: 134632, guid: 8f6918f6173bcf2469d22d85e942030e, type: 2}
-  InvalidTile: {fileID: 136744, guid: cdb928f5268cbe44a91b1a16aed6f3f5, type: 2}
-  SelectTile: {fileID: 110736, guid: 262f45e6d6aba1f4e80c8196cbabc042, type: 2}
-  HeroLateralMenu: {fileID: 104640, guid: d3ca986f7aa0f4b4db925fea4868ac5a, type: 2}
+  ValidTile: {fileID: 134632, guid: cf2e5a875a6e46d43a23e86121477cbc, type: 2}
+  InvalidTile: {fileID: 0}
+  SelectTile: {fileID: 110736, guid: 806b30de1b40b1d45b73af7d3f95c066, type: 2}
+  ThinkTile: {fileID: 134632, guid: c33832e799a2ce54a959829a5b20d2c4, type: 2}
+  HeroLateralMenu: {fileID: 104640, guid: 635a9749c83113b4eaac711eef2f1e63, type: 2}
   rateToCenter: 0.5
 --- !u!114 &11437640
 MonoBehaviour:
@@ -87,6 +88,7 @@ Canvas:
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: -1124197783
   m_SortingOrder: 0
   m_TargetDisplay: 0

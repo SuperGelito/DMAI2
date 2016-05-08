@@ -6,6 +6,7 @@ using System.Linq;
 using CSPNamespace;
 using Assets.Scripts.Board;
 using Assets.Scripts.Char;
+using UnityEngine.UI;
 
 public class BoardManager : MonoBehaviour {
 
@@ -22,7 +23,7 @@ public class BoardManager : MonoBehaviour {
 
     public Vector2 SelectedCell = new Vector2();
 
-	private Cell[,] matrix;
+	public Cell[,] matrix;
     private List<Hero> heroList;
     private Dictionary<Guid, GameObject> cellInstances;
     private Dictionary<Guid, GameObject> charInstances;
@@ -30,6 +31,8 @@ public class BoardManager : MonoBehaviour {
 
     public GameObject guiManager;
     private GameObject guiManagerInstance;
+
+    private AlgorithmsEnum alg = AlgorithmsEnum.DFS;
 
     public Vector3 BoardCenter { get
         {
@@ -119,7 +122,7 @@ var y = guiManagerInstance.transform.position.y;
         {
             var cell = matrix[(int)cellPos.x, (int)cellPos.y];
 
-            if (cell.overFloor == OverFloorType.Wall || cell.CellOwner != null)
+            if (cell.overFloor != OverFloorType.Wall && cell.CellOwner == null)
             {
                 return true;
             }
@@ -299,6 +302,7 @@ var y = guiManagerInstance.transform.position.y;
 			toInstantiate = this.Wall;
 			break;
 		default:
+                
 			break;
 		}
 
@@ -346,6 +350,68 @@ var y = guiManagerInstance.transform.position.y;
         return vars;
     }
     #endregion
+
+    #region SearchRoute
+
+    public void MoveCharToPoint(Vector3 target)
+    {
+        //Get actions to get to the point
+        var actionsToTarget = GetRouteTo(target);
+    }
+
+    private List<Vector2> GetRouteTo(Vector3 target)
+    {
+        List<Vector2> ret = new List<Vector2>();
+        //Create the problem and the agent
+        Problem prob = new Problem(heroList.First().Position, target, matrix, guiManagerInstance.GetComponent<GuiManager>());
+        SearchAgent agent = new SearchAgent(prob);
+        //Get the selected 
+        Node goalNode = null;
+        switch (alg)
+        {
+            case AlgorithmsEnum.DFS:
+                goalNode = agent.DFGS();
+                break;
+            case AlgorithmsEnum.BFS:
+                goalNode = agent.BFGS();
+                break;
+            case AlgorithmsEnum.UCS:
+                goalNode = agent.UCGS();
+                break;
+            case AlgorithmsEnum.AStar:
+                goalNode = agent.AstarGS();
+                break;
+            default:
+               goalNode = agent.DFGS();
+                break;
+        }
+        var nodeRoute = goalNode.Path();
+        nodeRoute.Reverse();
+        foreach (var node in nodeRoute)
+        {
+            if (node.Action.HasValue)
+            { 
+                ret.Add(node.Action.Value);
+                var pos = node.State.GetPosition();
+                guiManagerInstance.GetComponent<GuiManager>().MarkMoveCell(new Vector3(pos.x, pos.y));
+            }
+        }
+
+        return ret;
+    }
+
+    public void SetAlg(int numAlg)
+    {
+       this.alg = (AlgorithmsEnum)Enum.Parse(typeof(AlgorithmsEnum), numAlg.ToString());
+       Debug.Log("Algorithm changed to : " + alg.ToString());
+    }
+
+    #endregion
+}
+
+public enum AlgorithmsEnum
+{
+DFS = 1,BFS = 2,UCS = 3,AStar = 4
 }
 
 

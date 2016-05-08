@@ -59,8 +59,35 @@ public  class GameManager : MonoBehaviour {
                 if (boardManagerInstance.GetComponent<BoardManager>().ValidSelectCell(selectedPosition))
                 {
                     boardManagerInstance.GetComponent<BoardManager>().SelectCell(selectedPosition);
+                    actionMode = false;
+                    try
+                    {
+                        boardManagerInstance.GetComponent<BoardManager>().MoveCharToPoint(selectedPosition);
+                    }
+                    catch (System.Exception ex)
+                    {
+                        Debug.Log(ex.Message);
+                    }
+                    finally
+                    {
+                        actionMode = true;
+                    }
+
+                    
+
                 }
             }
         }
+        //Check if need to change the algorithm
+        if (Input.GetKey(KeyCode.F1))
+           boardManagerInstance.GetComponent<BoardManager>().SetAlg(1);
+        if (Input.GetKey(KeyCode.F2))
+            boardManagerInstance.GetComponent<BoardManager>().SetAlg(2);
+        if (Input.GetKey(KeyCode.F3))
+            boardManagerInstance.GetComponent<BoardManager>().SetAlg(3);
+        if (Input.GetKey(KeyCode.F4))
+            boardManagerInstance.GetComponent<BoardManager>().SetAlg(4);
+
+
     }
 }
